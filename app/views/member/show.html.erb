@@ -1,8 +1,23 @@
 <h1>会員詳細</h1>
 
-<%= @id %>
 
-<%= @members[@id][:id] %>
-<%= @members[@id][:name] %>
-<%= @members[@id][:sex] %>
-<%= @members[@id][:age] %>
+<% @members.each do |member| %>
+
+
+<%
+if member[:sex] == 1
+    member[:sex] = "女性"
+else
+    member[:sex] = "男性"
+end
+%>
+
+<ul>
+<li><%="会員ID:#{member[:id]}" %></li>
+<li><%= "氏名:#{member[:name]}" %></li>
+<li><%= "性別:#{member[:sex]}" %></li>
+<li><%= "年齢:#{member[:age]}" %></li>
+<ul>
+
+
+<% end %>
