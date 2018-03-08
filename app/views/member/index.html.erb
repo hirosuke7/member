@@ -6,6 +6,7 @@
   <td>性別</td>
   <td>年齢</td>
   <td>成人</td>
+  <td>詳細</td>
 </tr>
 
 <% @members.each do |member| %>
@@ -17,7 +18,6 @@ else
     member[:sex] = "男"
 end
 %>
-
 
 <%
 if member[:age] >= 20
@@ -31,6 +31,7 @@ end
 <td><%= "#{member[:sex]}" %></td>
 <td><%= "#{member[:age]}" %></td>
 <td><%= "#{member[:signal]}" %></td>
+<td><%= link_to("詳細","/member/show/#{member[:id]}") %></td>
 </tr>
 
 <% end %>

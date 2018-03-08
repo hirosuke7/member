@@ -37,4 +37,10 @@ class MemberController < ApplicationController
                 {id: 6, name: "辻村 佳代子", sex: 1, age: 15,signal:nil},
                 {id: 7, name: "今 亜希", sex: 1, age: 23,signal:nil}]
   end
+
+
+  def show
+    @id = params[:id].to_i
+  end
+
 end
