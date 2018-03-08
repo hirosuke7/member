@@ -1,0 +1,22 @@
+
+<table>
+<tr>
+  <td>会員ID</td>
+  <td>氏名</td>
+  <td>性別</td>
+  <td>年齢</td>
+  <td>成人</td>
+</tr>
+
+<%= @members.each do |member| %>
+
+<tr>
+<td><%="#{member[:id]}" %></td>
+<td><%= "#{member[:name]}" %></td>
+<td><%= "#{member[:sex]}" %></td>
+<td><%= "#{member[:age]}" %></td>
+<td><%= "#{member[:age]}" %></td>
+</tr>
+<% end %>
+
+</table>
