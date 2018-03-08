@@ -8,15 +8,31 @@
   <td>成人</td>
 </tr>
 
-<%= @members.each do |member| %>
+<% @members.each do |member| %>
+
+<%
+if member[:sex] == 1
+    member[:sex] = "女"
+else
+    member[:sex] = "男"
+end
+%>
+
+
+<%
+if member[:age] >= 20
+    member[:signal] = "◯"
+end
+%>
 
 <tr>
 <td><%="#{member[:id]}" %></td>
 <td><%= "#{member[:name]}" %></td>
 <td><%= "#{member[:sex]}" %></td>
 <td><%= "#{member[:age]}" %></td>
-<td><%= "#{member[:age]}" %></td>
+<td><%= "#{member[:signal]}" %></td>
 </tr>
+
 <% end %>
 
 </table>
