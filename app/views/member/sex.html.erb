@@ -1,3 +1,4 @@
+
 <table>
 <tr>
   <td>会員ID</td>
@@ -10,28 +11,25 @@
 
 <% @members.each do |member| %>
 
-<%
-if member[:sex] == 1
-    member[:sex] = "女性"
-else
-    member[:sex] = "男性"
-end
-%>
-
-
-<%
-if member[:age] >= 20
-    member[:signal] = "◯"
-end
-%>
-
 <tr>
 <td><%="#{member[:id]}" %></td>
 <td><%= "#{member[:name]}" %></td>
-<td><%= "#{member[:sex]}" %></td>
+<% if member[:sex] == 0 %>
+  <td>男性</td>
+<% else %>
+  <td>女性</td>
+<% end %>
 <td><%= "#{member[:age]}" %></td>
-<td><%= "#{member[:signal]}" %></td>
+  <% if member[:age] >= 20 %>
+    <td><%= "◯"%></td>
+  <% else %>
+    <td><%= " "%> </td>
+  <% end %>
+
+
+<td><%= link_to("詳細","/member/show/#{member[:id]}") %></td>
 </tr>
+
 <% end %>
 
 </table>
